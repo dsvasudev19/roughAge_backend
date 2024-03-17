@@ -37,6 +37,11 @@ module.exports = (sequelize, DataTypes) => {
         },
         
       })
+      this.belongsTo(models.Store,{
+        foreignKey: 'storeId',
+        constraints: false,
+        as: 'store'
+      })
     }
   }
   Product.init({
