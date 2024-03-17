@@ -11,8 +11,8 @@ const db = {};
 
 let sequelize;
 if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-  // sequelize = new Sequelize(process.env.DATABASE_URL, config);
+  // sequelize = new Sequelize(process.env[config.use_env_variable], config);
+  sequelize = new Sequelize("postgresql://ds.vasudev:GMYDYJrUEHMZOjRgCQScdw@roughage-870.jxf.cockroachlabs.cloud:26257/roughage-ecommerce?sslmode=verify-full", config);
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
@@ -42,13 +42,13 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-( async () => {
-  try {
-    await sequelize.sync( { alter: true } );
-    console.log("synced");
-  } catch ( error ) {
-    console.log( error.message );
-  }
-} )();
+// ( async () => {
+//   try {
+//     await sequelize.sync( { alter: true } );
+//     console.log("synced");
+//   } catch ( error ) {
+//     console.log( error.message );
+//   }
+// } )();
 
 module.exports = db;
