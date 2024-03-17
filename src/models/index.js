@@ -12,7 +12,7 @@ const db = {};
 let sequelize;
 if (config.use_env_variable) {
   // sequelize = new Sequelize(process.env[config.use_env_variable], config);
-  sequelize = new Sequelize("postgresql://ds.vasudev:GMYDYJrUEHMZOjRgCQScdw@roughage-870.jxf.cockroachlabs.cloud:26257/roughage-ecommerce?sslmode=verify-full", config);
+  sequelize = new Sequelize("postgresql://darse:BZPDbnHa4-LJrguOn3IshQ@roughage-4136.7s5.aws-ap-south-1.cockroachlabs.cloud:26257/roughage_ecommerce?sslmode=verify-full", config);
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
